@@ -1,25 +1,30 @@
-# Python Interpolation Examples
+# Lagrange and Cubic Spline Interpolation
 
-This repository provides simple Python examples for Lagrange and cubic spline interpolation. It also shows Runge's phenomenon and how to improve results using Chebyshev nodes.
+This Jupyter Notebook (`lagrange_spline_interpolation.ipynb`) demonstrates and compares Lagrange and Cubic Spline interpolation methods using Python.  It covers several examples, including mitigating Runge's phenomenon with Chebyshev nodes.
 
-## How to Use
+## Functionality
 
-1.  **Make sure you have Python installed.**
-2.  **Install these libraries:**
-    ```bash
-    pip install numpy scipy matplotlib
-    ```
-3.  **Download or clone this repository.**
-4.  **Run the Python file:**
-    ```bash
-    python interpolation_demo.py
-    ```
-   (or whatever you named the file).  This will show plots of the different interpolations.
+The code performs the following:
 
-## What's Included
+1.  **Lagrange Interpolation:** Implements Lagrange interpolation using `scipy.interpolate.lagrange`.
+2.  **Cubic Spline Interpolation:** Implements cubic spline interpolation using `scipy.interpolate.CubicSpline`.
+3.  **Chebyshev Nodes:** Includes a function to calculate Chebyshev nodes, which are strategically placed to reduce oscillations in polynomial interpolation (especially useful for higher-degree polynomials).
+4.  **Visualization:**  Provides a plotting function (`plot_it`) to visualize the original data points, the Lagrange interpolating polynomial, the cubic spline, and (optionally) the true function.
+5.  **Examples:**
+    *   **Example 1:** Interpolates the sine function (`sin(x)`).
+    *   **Example 2:** Interpolates a set of arbitrary data points.
+    *   **Example 3:** Demonstrates Runge's phenomenon by interpolating the Runge function (1 / (1 + 25x²)) with equally spaced nodes.  This shows the characteristic oscillations of high-degree Lagrange interpolation near the endpoints.
+    *   **Example 4:**  Repeats the Runge function interpolation, but this time using Chebyshev nodes. This significantly reduces the oscillations seen in Example 3, illustrating the benefit of Chebyshev nodes.
 
-*   **`interpolation_demo.py`:** (Or your chosen filename) - The Python code.
-*   **Example 1:** Interpolating the `sin(x)` function.
-*   **Example 2:** Interpolating some sample data points.
-*   **Example 3:** Demonstrating Runge's phenomenon (oscillations with high-degree polynomials).
-*   **Example 4:** Using Chebyshev nodes to reduce those oscillations.
+## Dependencies
+
+The code requires the following Python libraries:
+
+*   `matplotlib`: For plotting.
+*   `numpy`: For numerical operations.
+*   `scipy`: For interpolation functions (`lagrange` and `CubicSpline`).
+
+You can install these using pip:
+
+```bash
+pip install matplotlib numpy scipy
